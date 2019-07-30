@@ -10,9 +10,9 @@ For this Hackathon, we wanted to focus on facility data analytics. Here at Rockw
 Link: http://rockwellenergy.herokuapp.com/
 
 #### Contributors
-Jacob Lebowiitz <br>
-Jordan Rodrigues <br>
-Michael Strohmeier <br>
+* Jacob Lebowiitz <br>
+* Jordan Rodrigues <br>
+* Michael Strohmeier <br>
 
 
 
