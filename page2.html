@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>24ToCode Energy Challenge</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="home.css">
+    <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        window.onload = function () {
+            var dataPoints = [];
+
+            //Replace text file's path according to your requirement.
+            $.get("DATA.txt", function (data) {
+                var x = 0;
+                var allLines = data.split('\n');
+                if (allLines.length > 0) {
+                    for (var i = 0; i < allLines.length; i++) {
+                        dataPoints.push({
+                            x: x,
+                            y: parseInt(allLines[i])
+                            setTimeout(log(),2000)
+                        });
+                        setTimeout(chartDisplay(dataPoints), 2000)
+                        x++
+                    }
+                }
+            })
+        }
+
+        function chartDisplay(dataPoints) {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "Chart using Text File Data"
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: dataPoints,
+                }]
+            });
+            chart.render();
+
+        }
+
+        function log() {
+            console.log("test")
+        }
+    </script>
+    </script>
+</head>
+
+<body>
+    <div class="headerSec2">
+        <img class="rockPic" src="Images/RockwellLogo2.png">
+        <h1 class="headerText">The Bowtie Boyz -- Energy Management Toolkit </h1>
+    </div>
+    <div class="leftHalf">
+        <h1 class="graphHeader">Real Power Demand</h1>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    </div>
+    <div class="rightHalf">
+        <h1 class="graphHeader">Cost Over Time</h1>
+    </div>
+    <div class="valueSection">
+        <h5 class="valueHeader">Valuable Components</h5>
+        <div class="money">
+            <img class="statIcon" src="Images/warning.png">
+            <h5 class="statDesc">Real-Time Alerts to Facility Operators</h5>
+        </div>
+        <div class="earth">
+            <img class="statIcon" src="Images/monitor.png">
+            <h5 class="statDesc">24/7 Energy Monitoring and Predictions</h5>
+        </div>
+        <div class="government">
+            <img class="statIcon" src="Images/marketing.png">
+            <h5 class="statDesc">Cost-Savings & Increased Profitability</h5>
+        </div>
+    </div>
+    <h5 class="dataHeader2">Our Process:</h5>
+    <div class="leftHalf2">
+        <h5 class="dataHeader">Our Data:</h5>
+        <img class="data" src="Images/data.PNG">
+    </div>
+    <div class="rightHalf2">
+        <h5 class="dataHeader">Our Filters:</h5>
+        <div class="infoButtons">
+            <div id="The peak real power usage for any given hour in the Mequon facility." class="infoButton">
+                <h5 class="info">Peak Real Power</h5>
+            </div>
+            <div id="The net total of Reactive (Wasted) Energy in any given hour (Mequon)." class="infoButton">
+                <h5 class="info">Reactive Energy</h5>
+            </div>
+            <div id="The net total of Real (Used) Energy in any given hour (Mequon)." class="infoButton">
+                <h5 class="info">Real Energy Net</h5>
+            </div>
+            <div id="The percentage of energy that is being used effectively (Mequon)." class="infoButton">
+                <h5 class="info">Efficiency</h5>
+            </div>
+            <div id="The data the subset of date ranges was collected from." class="infoButton">
+                <h5 class="info">Date</h5>
+            </div>
+        </div>
+        <div class="infoButtons">
+            <div id="The max temperature at the facility on any given day." class="infoButton infoWide">
+                <h5 class="info">Max Temp (MKE)</h5>
+            </div>
+            <div id="The min temperature at the facility on any given day." class="infoButton infoWide">
+                <h5 class="info">Min Temp (MKE)</h5>
+            </div>
+            <div id="The average temperature at the facility on any given day." class="infoButton infoWide">
+                <h5 class="info">Average Temp</h5>
+            </div>
+            <div id="The average stock value of all the energy titans at the time." class="infoButton infoWide">
+                <h5 class="info">Avg. Energy Stock</h5>
+            </div>
+        </div>
+        <div class="infoButtons">
+            <div id="Price of Rockwell's Stock at the time -- correlates with orders." class="infoButton infoWide">
+                <h5 class="info">Rockwell Stock</h5>
+            </div>
+            <div id="Max cost of electricy per KwH across energy distributors." class="infoButton infoWide">
+                <h5 class="info">High - $ per KwH</h5>
+            </div>
+            <div id="Min cost of electricity per KwH across energy distributors." class="infoButton infoWide">
+                <h5 class="info">Low - $ per KwH</h5>
+            </div>
+            <div id="Avg. cost of electricity per KwH across energy distributors." class="infoButton infoWide">
+                <h5 class="info">Average - $ per KwH</h5>
+            </div>
+        </div>
+        <h5 class="infoHeader">Click the icons above to learn more about our data!</h5>
+    </div>
+    <div class="thanksSec">
+        <h5 class="thanksHeader">Thank You!</h5>
+    </div>
+    <script src="home.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</body>
+
+</html>
